@@ -3,15 +3,19 @@ import Routes from 'routes';
 import TopBar from 'components/topbar';
 import { CurrentUserProvider } from 'contexts/currentUser';
 
+import CurrentUserChecker from 'components/currentUserChecker';
+
 function App() {
 	return (
 		<div className="App">
 			<CurrentUserProvider>
-				<Router>
-					<TopBar />
-					<Routes />
-				</Router>
-			</CurrentUserProvider> 
+				<CurrentUserChecker>
+					<Router>
+						<TopBar />
+						<Routes />
+					</Router>
+				</CurrentUserChecker>
+			</CurrentUserProvider>
 		</div>
 	);
 }
